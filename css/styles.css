@@ -23,7 +23,61 @@ ul{
     margin-bottom: 0;
 }
 
+:root{
+    --bgColor: rgb(0, 0, 0); 
+    --barraWidth: 50px;
+}
+
 body{
     font-family: sans-serif;
     margin: 0;
+    background-color: var(--bgColor);
+    min-height: 500vh;
+}
+
+h1{
+    color: white;
+}
+
+.barra{
+    height: 50px;
+    background-color: red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--barraWidth);
+}
+.textpx{
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    margin-bottom: 20px;
+}
+
+.botones{
+    margin-top: 20px;
+    position: fixed;
+    top: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.button1{
+    height: 48px;
+    width: 200px;
+margin-right: 20px;
+
+}
+
+.button2{
+    height: 48px;
+    width: 200px;
+}
+
+.mouse{
+    width: 20px;
+    height: 20px;
+    background-color: orange;
+    position: fixed;
+    top: 200px;
 }
