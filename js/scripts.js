@@ -1,9 +1,3 @@
-/*Datos necesarios:
-Scroll total de la ventana: document.body.scrollHeight
-Alto de la ventana: window.innerHeight
-Cantidad de scroll: window.scrollY
-*/
-
 /*## VARIABLES CSS
 
 - Crea un div de color rojo y colócalo en la parte superior izquierda de tu web. Haz que tu web tenga un min-height de 500vh para generar scroll. El div deberá sincronizarse con el scroll, si estás arriba del todo medirá 0 de ancho y si está abajo del todo medirá el 100%, según vayas haciendo scroll el div deberá ir creciendo o encogiendo en función de si subes o bajas.
@@ -22,6 +16,7 @@ const textElement = document.getElementById("text");
 const buttonRGBElement = document.getElementById("buttonRGB");
 const buttonHexElement = document.getElementById("buttonHex");
 const mouseboxElement = document.getElementById("mousebox");
+const scrollElement = document.getElementById("scrollbar");
 
 /*modificción
 rootStyles.setProperty(nombreVariable, nuevoValor);*/
@@ -54,3 +49,40 @@ const colorHex = () => {
 };
 
 buttonHexElement.addEventListener("click", colorHex);
+
+/*Barra*/
+/*Datos necesarios:
+Scroll total de la ventana: document.body.scrollHeight
+Alto de la ventana: window.innerHeight
+Cantidad de scroll: window.scrollY
+*/
+
+const scroll = () => {
+  const scrollmax = document.body.scrollHeight;
+  const ventana = window.innerHeight;
+  const cantidadscroll = window.scrollY;
+
+  const scrolldisponible = scrollmax - ventana;
+
+  /* Si el scroll disponible es el 100%, la cantidad de scrol es x*/
+
+  const porcentajeScroll = (cantidadscroll / scrolldisponible) * 100;
+
+  rootStyles.setProperty("--barraWidth", `${porcentajeScroll}%`);
+  /*h1 cambie*/
+  textElement.textContent = `Te has desplazado ${window.scrollY}px`;
+};
+
+window.addEventListener("scroll", scroll);
+
+/*cuadrado*/
+const mousefollow = (event) => {
+  const mousex = event.x;
+  const mousey = event.y;
+  console.log(event.x);
+  console.log(event.y);
+  rootStyles.setProperty("--mouseleft", `${mousex}px`);
+  rootStyles.setProperty("--mousetop", `${mousey}px`);
+};
+
+window.addEventListener("mousemove", mousefollow);

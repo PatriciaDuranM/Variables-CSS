@@ -26,6 +26,8 @@ ul{
 :root{
     --bgColor: rgb(0, 0, 0); 
     --barraWidth: 50px;
+    --mousetop: 200px;
+    --mouseleft: 0px;
 }
 
 body{
@@ -79,5 +81,7 @@ margin-right: 20px;
     height: 20px;
     background-color: orange;
     position: fixed;
-    top: 200px;
+    top: var(--mousetop);
+    left: var(--mouseleft);
+    pointer-events:none; /*asi no detecta los clicks del raton*/
 }
